@@ -1,0 +1,197 @@
+# INSTRUKCJA URUCHOMIENIA PROJEKTU STOCK MARKET SIMULATOR W VISUAL STUDIO CODE
+
+## KROK 1: INSTALACJA JAVA JDK (jeśli nie masz)
+
+1. Idź na stronę: https://adoptium.net/
+2. Pobierz Java JDK 17 lub nowszy (LTS - Long Term Support)
+3. Zainstaluj JDK zgodnie z instrukcjami dla Twojego systemu
+4. Sprawdź instalację:
+   - Otwórz wiersz poleceń (cmd)
+   - Wpisz: java -version
+   - Powinieneś zobaczyć informację o wersji Java
+
+## KROK 2: INSTALACJA VISUAL STUDIO CODE
+
+1. Idź na stronę: https://code.visualstudio.com/
+2. Pobierz VS Code dla Twojego systemu operacyjnego
+3. Zainstaluj VS Code (standardowa instalacja, wszystkie domyślne opcje)
+
+## KROK 3: INSTALACJA ROZSZERZEŃ JAVA W VS CODE
+
+1. Uruchom Visual Studio Code
+2. Kliknij na ikonę Extensions (kwadraciki) w lewym panelu ALBO naciśnij Ctrl+Shift+X
+3. W polu wyszukiwania wpisz: Extension Pack for Java
+4. Znajdź rozszerzenie "Extension Pack for Java" od Microsoft
+5. Kliknij "Install"
+6. Poczekaj aż zainstaluje się (może potrwać kilka minut)
+
+To rozszerzenie automatycznie zainstaluje:
+- Language Support for Java (Red Hat)
+- Debugger for Java (Microsoft)
+- Test Runner for Java (Microsoft)
+- Maven for Java (Microsoft)
+- Project Manager for Java (Microsoft)
+- Visual Studio IntelliCode (Microsoft)
+
+## KROK 4: SPRAWDZENIE CZY STRUKTURA FOLDERÓW JEST GOTOWA
+
+Upewnij się że masz taką strukturę folderów:
+
+StockMarketSimulator/
+└── src/
+    └── com/
+        └── stockmarket/
+            ├── exception/
+            │   ├── InsufficientFundsException.java
+            │   ├── InsufficientAssetsException.java
+            │   └── AssetNotFoundException.java
+            ├── market/
+            │   ├── Tradable.java
+            │   └── Market.java
+            ├── model/
+            │   ├── Asset.java
+            │   ├── Stock.java
+            │   └── Bond.java
+            ├── portfolio/
+            │   ├── PortfolioPosition.java
+            │   └── Portfolio.java
+            └── main/
+                └── StockMarketSimStage3.java
+
+## KROK 5: OTWIERANIE PROJEKTU W VS CODE
+
+1. Uruchom Visual Studio Code
+2. Kliknij "File" → "Open Folder" ALBO naciśnij Ctrl+K, Ctrl+O
+3. Znajdź i wybierz folder "StockMarketSimulator" (główny folder projektu)
+4. Kliknij "Otwórz" lub "Select Folder"
+
+WAŻNE: Musisz otworzyć główny folder "StockMarketSimulator", nie folder "src"!
+
+## KROK 6: KONFIGURACJA PROJEKTU JAVA
+
+Po otwarciu folderu VS Code może wyświetlić powiadomienia:
+
+1. Jeśli zobaczysz "Do you trust the authors of files in this folder?" - kliknij "Yes, I trust the authors"
+
+2. Jeśli VS Code pyta o JDK:
+   - Naciśnij Ctrl+Shift+P (otworzy Command Palette)
+   - Wpisz: Java: Configure Java Runtime
+   - Wybierz odpowiednią wersję JDK (powinna być automatycznie wykryta)
+
+3. Jeśli zobaczysz ikony Java w lewym panelu Explorer - świetnie! Projekt jest rozpoznany jako projekt Java.
+
+## KROK 7: KOMPILACJA PROJEKTU
+
+Metoda 1 - Automatyczna kompilacja:
+- VS Code z rozszerzeniem Java automatycznie kompiluje kod w tle
+- Zobaczysz folder "bin" lub ".vscode" pojawiający się w strukturze projektu
+- Jeśli są błędy, zobaczysz czerwone podkreślenia w kodzie
+
+Metoda 2 - Ręczna kompilacja:
+1. Naciśnij Ctrl+Shift+P
+2. Wpisz: Java: Compile Workspace
+3. Naciśnij Enter
+
+## KROK 8: URUCHOMIENIE PROGRAMU
+
+Metoda 1 - Najłatwiejsza (zalecana):
+1. Otwórz plik StockMarketSimStage3.java
+2. Znajdź metodę "public static void main"
+3. Nad linią z "public static void main" zobaczysz tekst "Run | Debug"
+4. Kliknij "Run"
+
+Metoda 2 - Przez menu kontekstowe:
+1. Kliknij prawym przyciskiem na plik StockMarketSimStage3.java
+2. Wybierz "Run Java"
+
+Metoda 3 - Przez Command Palette:
+1. Naciśnij Ctrl+Shift+P
+2. Wpisz: Java: Run Java
+3. Wybierz StockMarketSimStage3
+
+## KROK 9: OBSERWOWANIE WYNIKÓW
+
+Po uruchomieniu:
+1. Dolny panel VS Code się otworzy
+2. Zobaczysz zakładkę "TERMINAL" - kliknij na nią
+3. Program zacznie działać i wyświetlać symulację giełdy
+4. Obserwuj jak:
+   - System kupuje różne aktywa
+   - Testuje obsługę błędów
+   - Symuluje zmiany cen przez 10 kroków czasowych
+   - Pokazuje końcowe podsumowanie
+
+Program działa automatycznie - nie musisz niczego wpisywać, tylko obserwować!
+
+## ROZWIĄZYWANIE PROBLEMÓW
+
+Problem: "Java extension pack not found" lub podobny
+Rozwiązanie: Upewnij się że Extension Pack for Java jest zainstalowany (krok 3)
+
+Problem: "No Java runtime found"
+Rozwiązanie: 
+- Sprawdź czy JDK jest zainstalowany (java -version w cmd)
+- Uruchom ponownie VS Code
+- Ctrl+Shift+P → "Java: Configure Java Runtime"
+
+Problem: "Cannot resolve symbol" lub czerwone podkreślenia
+Rozwiązanie:
+- Sprawdź czy struktura folderów jest dokładnie taka jak w kroku 4
+- Sprawdź czy wszystkie pliki mają poprawne nazwy (wielkość liter ma znaczenie!)
+- Ctrl+Shift+P → "Java: Clean Workspace"
+
+Problem: Program się nie uruchamia
+Rozwiązanie:
+- Sprawdź czy otworzyłeś główny folder projektu "StockMarketSimulator"
+- Sprawdź czy plik StockMarketSimStage3.java zawiera metodę main
+- Spróbuj uruchomić przez terminal: java -cp bin com.stockmarket.main.StockMarketSimStage3
+
+Problem: Nie widzę opcji "Run | Debug" nad metodą main
+Rozwiązanie:
+- Poczekaj chwilę - VS Code może potrzebować czasu na analizę projektu
+- Kliknij prawym przyciskiem na plik i wybierz "Run Java"
+- Sprawdź czy rozszerzenia Java są włączone
+
+## DODATKOWE WSKAZÓWKI
+
+1. Pierwsz uruchomienie może potrwać dłużej - VS Code analizuje projekt
+
+2. Jeśli program działa za szybko, możesz zmienić prędkość w kodzie:
+   - Otwórz StockMarketSimStage3.java
+   - Znajdź linię: Thread.sleep(1200);
+   - Zmień 1200 na większą liczbę (np. 3000 = 3 sekundy przerwy)
+
+3. Aby uruchomić program ponownie:
+   - Kliknij ponownie "Run" lub naciśnij Ctrl+F5
+
+4. Aby zatrzymać program:
+   - Kliknij przycisk "Stop" w terminalu lub naciśnij Ctrl+C
+
+5. Jeśli chcesz zmodyfikować kod:
+   - Zmień wartości początkowe (ilość gotówki, ceny akcji)
+   - Dodaj nowe akcje lub obligacje
+   - Zmień algorytmy zmiany cen
+
+## CZEGO OCZEKIWAĆ PO URUCHOMIENIU
+
+Program wykona następujące kroki:
+
+1. Wyświetli powitanie i stan początkowy rynku
+2. Wykona przykładowe transakcje kupna i sprzedaży
+3. Przetestuje obsługę błędów (próby niewłaściwych transakcji)
+4. Uruchomi 10-krokową symulację zmian cen
+5. Pokaże końcowe podsumowanie portfela i statystyki
+
+Cały proces zajmuje około 1-2 minut (zależy od prędkości animacji).
+
+## SUKCES!
+
+Jeśli widzisz kolorowy output z emoji, transakcjami i zmianami cen - 
+GRATULACJE! Twój projekt działa perfekcyjnie!
+
+Ten projekt demonstruje wszystkie kluczowe koncepcje programowania 
+obiektowego z kursu i jest gotowy do prezentacji wykładowcy.
+
+---
+ZAPISZ TĘ INSTRUKCJĘ I TRZYMAJ POD RĘKĄ PODCZAS PRACY Z PROJEKTEM!
+---
